@@ -77,8 +77,8 @@ export function Navbar() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-nav dark:glass-nav-dark border-t border-border">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+        <div className="md:hidden fixed inset-0 top-[72px] bg-background/95 backdrop-blur-xl border-t border-border z-50">
+          <nav className="container mx-auto px-4 py-6 flex flex-col gap-6">
             {[
               { name: "Home", id: "home" },
               { name: "About", id: "about" },
@@ -89,12 +89,12 @@ export function Navbar() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="text-foreground/80 hover:text-foreground transition-colors py-2 font-medium text-left"
+                className="text-foreground/90 hover:text-foreground transition-colors py-3 font-medium text-left text-lg"
               >
                 {item.name}
               </button>
             ))}
-            <Button className="bg-purple-600 hover:bg-purple-700 mt-2 interactive-button">Resume</Button>
+            <Button className="bg-purple-600 hover:bg-purple-700 mt-4 interactive-button w-full py-6 text-lg">Resume</Button>
           </nav>
         </div>
       )}

@@ -15,7 +15,37 @@ export const metadata = {
   title: "Chike | Portfolio",
   description:
     "Personal portfolio of Chike - Software Developer, Front End Developer, Videographer, and Graphics Designer",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: [
+      {
+        url: '/logo.png',
+        type: 'image/png',
+      },
+    ],
+    apple: [
+      {
+        url: '/logo.png',
+        type: 'image/png',
+      },
+    ],
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    viewportFit: 'cover',
+  },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Chike | Portfolio',
+  },
 }
 
 export default function RootLayout({
@@ -25,7 +55,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${orbitron.className} font-sans antialiased`}>
+      <head>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      </head>
+      <body className={`${inter.variable} ${orbitron.className} font-sans antialiased min-h-screen w-full overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {children}
         </ThemeProvider>
